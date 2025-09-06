@@ -1,4 +1,5 @@
 import logging
+import os
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
@@ -9,7 +10,8 @@ logging.basicConfig(
 )
 
 # SUBSTITUA pelo seu Token do bot (o que você anotou no Word)
-BOT_TOKEN = "8435677944:AAHJTLyv0iUeM-NgIlXZ_E1PVxz6SahknCA"
+import os
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 # Função para responder ao comando /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -36,6 +38,11 @@ async def teste(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 def main() -> None:
     """Função principal que inicia o bot"""
+    # Verifica se o token foi carregado corretamente
+    if not BOT_TOKEN:
+        print("Erro: BOT_TOKEN não encontrado nas variáveis de ambiente!")
+        return
+    
     # Cria a aplicação
     application = Application.builder().token(BOT_TOKEN).build()
 
@@ -44,9 +51,6 @@ def main() -> None:
     application.add_handler(CommandHandler("help", help_command))
     application.add_handler(CommandHandler("teste", teste))
 
-    # Inicia o bot
-    print("Bot iniciado! Pressione Ctrl+C para parar.")
-    application.run_polling()
-
-if __name__ == '__main__':
-    main()
+    # Inicia o bot (otimizado para Render)
+    print("Bot iniciado no Render! Rodando 24/7...")
+    application.run_polling(drop_pending_updates=True)
