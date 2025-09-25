@@ -1,0 +1,143 @@
+# bot_alerts_binance.py
+import os
+import time
+import json
+import logging
+import requests
+from dotenv import load_dotenv
+from telegram import Bot
+
+# --- Configurações seguras por padrão ---
+TOP_N = 1
+POLL_INTERVAL = 30      # segundos
+COOLDOWN_MINUTES = 10   # minutos
+
+LAST_ALERTS_FILE = "last_alerts.json"
+LOG_FILE = "bot.log"
+
+# --- Logging ---
+logger = logging.getLogger("bot_alerts")
+logger.setLevel(logging.INFO)
+formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
+
+fh = logging.FileHandler(LOG_FILE, encoding="utf-8")
+fh.setFormatter(formatter)
+logger.addHandler(fh)
+
+ch = logging.StreamHandler()
+ch.setFormatter(formatter)
+logger.addHandler(ch)
+
+# --- Load .env ---
+load_dotenv()
+TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+
+if not TOKEN or not CHAT_ID:
+    logger.error("Erro: TELEGRAM_TOKEN ou TELEGRAM_CHAT_ID não encontrados no .env")
+    raise SystemExit(1)
+
+try:
+    CHAT_ID = int(CHAT_ID)
+except Exception:
+    logger.error("CHAT_ID inválido. Deve ser um número.")
+    raise SystemExit(1)
+
+bot = Bot(token=TOKEN)
+
+def send(msg):
+    try:
+        bot.send_message(chat_id=CHAT_ID, text=msg)
+        logger.info("Mensagem enviada: %s", msg.replace("\n", " | "))
+    except Exception as e:
+        logger.exception("Erro ao enviar mensagem: %s", e)
+
+# --- Persistência do cooldown entre reinícios ---
+def load_last_alerts():
+    if os.path.exists(LAST_ALERTS_FILE):
+        try:
+            with open(LAST_ALERTS_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            logger.exception("Erro ao carregar last alerts, iniciando vazio.")
+    return {}
+
+def save_last_alerts(data):
+    try:
+        with open(LAST_ALERTS_FILE, "w", encoding="utf-8") as f:
+            json.dump(data, f)
+    except Exception:
+        logger.exception("Erro ao salvar last alerts.")
+
+last_alert = load_last_alerts()
+
+# --- Helper: requests com backoff simples ---
+def fetch_with_backoff(url, max_retries=3, base_wait=1):
+    wait = base_wait
+    for attempt in range(1, max_retries + 1):
+        try:
+            r = requests.get(url, timeout=10)
+            r.raise_for_status()
+            return r.json()
+        except Exception as e:
+            logger.warning("Request falhou (tentativa %d/%d): %s", attempt, max_retries, e)
+            if attempt == max_retries:
+                logger.error("Max retries atingido para %s", url)
+                return None
+            time.sleep(wait)
+            wait *= 2
+    return None
+
+# --- Busca top symbols pela quoteVolume (Binance Futures) ---
+def get_top_symbols(n=1):
+    data = fetch_with_backoff("https://fapi.binance.com/fapi/v1/ticker/24hr")
+    if not data:
+        return []
+    try:
+        usdt = [d for d in data if d["symbol"].endswith("USDT")]
+        sorted_by_vol = sorted(usdt, key=lambda x: float(x.get("quoteVolume", 0)), reverse=True)
+        return sorted_by_vol[:n]
+    except Exception:
+        logger.exception("Erro ao processar dados Binance")
+        return []
+
+def check_conditions_and_alert(ticker):
+    try:
+        symbol = ticker["symbol"]
+        change = float(ticker.get("priceChangePercent", 0))
+        price = ticker.get("lastPrice")
+        now = time.time()
+        last = float(last_alert.get(symbol, 0))
+        if abs(change) >= 5:  # exemplo demo: alerta se variação >= 5%
+            if now - last >= COOLDOWN_MINUTES * 60:
+                msg = f"ALERTA DEMO: {symbol}\nChange(24h): {change:.2f}%\nPreço: {price}"
+                send(msg)
+                last_alert[symbol] = now
+                save_last_alerts(last_alert)
+            else:
+                logger.info("%s em cooldown.", symbol)
+    except Exception:
+        logger.exception("Erro ao checar condição para %s", ticker.get("symbol", "unknown"))
+
+# --- Início ---
+logger.info("Bot de Alertas iniciado (starter seguro). TOP_N=%d POLL_INTERVAL=%ds COOLDOWN=%dm",
+            TOP_N, POLL_INTERVAL, COOLDOWN_MINUTES)
+send(f"Bot de Alertas iniciado ✅\nModo: starter seguro\nTOP_N={TOP_N}")
+
+logger.info("Entrando no loop principal. Ctrl+C para parar.")
+try:
+    while True:
+        top = get_top_symbols(TOP_N)
+        if not top:
+            logger.warning("Nenhum ticker retornado neste ciclo.")
+        else:
+            for t in top:
+                logger.info("Checando: %s Change%% %s", t["symbol"], t.get("priceChangePercent"))
+                check_conditions_and_alert(t)
+        time.sleep(POLL_INTERVAL)
+except KeyboardInterrupt:
+    logger.info("Interrompido pelo usuário. Finalizando.")
+    send("Bot de Alertas finalizado (Ctrl+C).")
+except Exception:
+    logger.exception("Erro não tratado no loop principal.")
+    send("Bot encontrou erro crítico e parou. Veja logs.")

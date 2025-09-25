@@ -1,0 +1,288 @@
+2025-09-24 20:35:57,945 INFO: Bot de Alertas iniciado (starter seguro). TOP_N=1 POLL_INTERVAL=30s COOLDOWN=10m
+2025-09-24 20:36:01,653 INFO: Mensagem enviada: Bot de Alertas iniciado ✅ | Modo: starter seguro | TOP_N=1
+2025-09-24 20:36:01,653 INFO: Entrando no loop principal. Ctrl+C para parar.
+2025-09-24 20:36:03,261 INFO: Checando: ETHUSDT Change% -0.532
+2025-09-24 20:36:34,876 INFO: Checando: ETHUSDT Change% -0.486
+2025-09-24 20:37:06,549 INFO: Checando: ETHUSDT Change% -0.569
+2025-09-24 20:37:26,285 INFO: Interrompido pelo usuário. Finalizando.
+2025-09-24 20:37:26,796 INFO: Mensagem enviada: Bot de Alertas finalizado (Ctrl+C).
+2025-09-24 20:38:21,239 INFO: Bot de Alertas iniciado (starter seguro). TOP_N=1 POLL_INTERVAL=30s COOLDOWN=10m
+2025-09-24 20:38:24,750 INFO: Mensagem enviada: Bot de Alertas iniciado ✅ | Modo: starter seguro | TOP_N=1
+2025-09-24 20:38:24,750 INFO: Entrando no loop principal. Ctrl+C para parar.
+2025-09-24 20:38:25,494 INFO: Checando: ETHUSDT Change% -0.634
+2025-09-24 20:38:57,104 INFO: Checando: ETHUSDT Change% -0.629
+2025-09-24 20:39:18,989 INFO: Bot de Alertas iniciado (starter seguro). TOP_N=1 POLL_INTERVAL=30s COOLDOWN=10m
+2025-09-24 20:39:20,291 ERROR: Erro ao enviar mensagem: Unauthorized
+Traceback (most recent call last):
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\bot_alerts_binance.py", line 50, in send
+    bot.send_message(chat_id=CHAT_ID, text=msg)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\bot.py", line 134, in decorator
+    result = func(*args, **kwargs)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\bot.py", line 534, in send_message
+    return self._message(  # type: ignore[return-value]
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\bot.py", line 344, in _message
+    result = self._post(endpoint, data, timeout=timeout, api_kwargs=api_kwargs)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\bot.py", line 299, in _post
+    return self.request.post(
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\utils\request.py", line 361, in post
+    result = self._request_wrapper(
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\utils\request.py", line 277, in _request_wrapper
+    raise Unauthorized(message)
+telegram.error.Unauthorized: Unauthorized
+2025-09-24 20:39:20,296 INFO: Entrando no loop principal. Ctrl+C para parar.
+2025-09-24 20:39:21,909 INFO: Checando: ETHUSDT Change% -0.663
+2025-09-24 20:39:27,683 INFO: Checando: ETHUSDT Change% -0.666
+2025-09-24 20:39:58,298 INFO: Checando: ETHUSDT Change% -0.607
+2025-09-24 20:40:29,906 INFO: Checando: ETHUSDT Change% -0.623
+2025-09-24 20:41:01,543 INFO: Checando: ETHUSDT Change% -0.542
+2025-09-24 20:41:24,581 INFO: Interrompido pelo usuário. Finalizando.
+2025-09-24 20:41:24,601 ERROR: Erro ao enviar mensagem: urllib3 HTTPError ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+Traceback (most recent call last):
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 614, in urlopen
+    httplib_response = self._make_request(conn, method, url,
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 402, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 398, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\http\client.py", line 1377, in getresponse
+    response.begin()
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\http\client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\http\client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+ConnectionResetError: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\utils\request.py", line 259, in _request_wrapper
+    resp = self._con_pool.request(*args, **kwargs)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\request.py", line 68, in request
+    return self.request_encode_body(method, url, fields=fields,
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\poolmanager.py", line 244, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 665, in urlopen
+    retries = retries.increment(method, url, error=e, _pool=self,
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\util\retry.py", line 347, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\packages\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 614, in urlopen
+    httplib_response = self._make_request(conn, method, url,
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 402, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 398, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\http\client.py", line 1377, in getresponse
+    response.begin()
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\http\client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\http\client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+telegram.vendor.ptb_urllib3.urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\bot_alerts_binance.py", line 50, in send
+    bot.send_message(chat_id=CHAT_ID, text=msg)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\bot.py", line 134, in decorator
+    result = func(*args, **kwargs)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\bot.py", line 534, in send_message
+    return self._message(  # type: ignore[return-value]
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\bot.py", line 344, in _message
+    result = self._post(endpoint, data, timeout=timeout, api_kwargs=api_kwargs)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\bot.py", line 299, in _post
+    return self.request.post(
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\utils\request.py", line 361, in post
+    result = self._request_wrapper(
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\utils\request.py", line 265, in _request_wrapper
+    raise NetworkError(f'urllib3 HTTPError {error}') from error
+telegram.error.NetworkError: urllib3 HTTPError ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+2025-09-24 20:44:26,526 INFO: Bot de Alertas iniciado (starter seguro). TOP_N=1 POLL_INTERVAL=30s COOLDOWN=10m
+2025-09-24 20:44:30,261 INFO: Mensagem enviada: Bot de Alertas iniciado ✅ | Modo: starter seguro | TOP_N=1
+2025-09-24 20:44:30,270 INFO: Entrando no loop principal. Ctrl+C para parar.
+2025-09-24 20:44:30,960 INFO: Checando: ETHUSDT Change% -0.588
+2025-09-24 20:45:02,955 INFO: Checando: ETHUSDT Change% -0.567
+2025-09-24 20:45:34,047 INFO: Interrompido pelo usuário. Finalizando.
+2025-09-24 20:45:34,580 INFO: Mensagem enviada: Bot de Alertas finalizado (Ctrl+C).
+2025-09-24 20:46:16,713 INFO: Bot de Alertas iniciado (starter seguro). TOP_N=1 POLL_INTERVAL=30s COOLDOWN=10m
+2025-09-24 20:46:19,186 INFO: Mensagem enviada: Bot de Alertas iniciado ✅ | Modo: starter seguro | TOP_N=1
+2025-09-24 20:46:19,187 INFO: Entrando no loop principal. Ctrl+C para parar.
+2025-09-24 20:46:19,761 INFO: Checando: ETHUSDT Change% -0.502
+2025-09-24 20:46:51,421 INFO: Checando: ETHUSDT Change% -0.549
+2025-09-24 20:47:23,034 INFO: Checando: ETHUSDT Change% -0.639
+2025-09-24 20:47:53,952 INFO: Checando: ETHUSDT Change% -0.573
+2025-09-24 20:48:25,556 INFO: Checando: ETHUSDT Change% -0.478
+2025-09-24 20:48:56,547 INFO: Checando: ETHUSDT Change% -0.547
+2025-09-24 20:49:28,161 INFO: Checando: ETHUSDT Change% -0.587
+2025-09-24 20:49:58,794 INFO: Checando: ETHUSDT Change% -0.561
+2025-09-24 20:50:30,448 INFO: Checando: ETHUSDT Change% -0.587
+2025-09-24 20:51:01,130 INFO: Checando: ETHUSDT Change% -0.534
+2025-09-24 20:51:32,715 INFO: Checando: ETHUSDT Change% -0.517
+2025-09-24 20:52:04,363 INFO: Checando: ETHUSDT Change% -0.537
+2025-09-24 20:52:36,526 INFO: Checando: ETHUSDT Change% -0.526
+2025-09-24 20:53:08,133 INFO: Checando: ETHUSDT Change% -0.489
+2025-09-24 20:53:39,760 INFO: Checando: ETHUSDT Change% -0.417
+2025-09-24 20:54:11,331 INFO: Checando: ETHUSDT Change% -0.414
+2025-09-24 20:54:42,914 INFO: Checando: ETHUSDT Change% -0.335
+2025-09-24 20:55:14,535 INFO: Checando: ETHUSDT Change% -0.285
+2025-09-24 20:55:46,146 INFO: Checando: ETHUSDT Change% -0.285
+2025-09-24 20:56:17,983 INFO: Checando: ETHUSDT Change% -0.287
+2025-09-24 20:56:49,651 INFO: Checando: ETHUSDT Change% -0.297
+2025-09-24 20:57:21,273 INFO: Checando: ETHUSDT Change% -0.294
+2025-09-24 20:57:51,868 INFO: Checando: ETHUSDT Change% -0.285
+2025-09-24 20:57:55,945 INFO: Interrompido pelo usuário. Finalizando.
+2025-09-24 20:57:55,962 ERROR: Erro ao enviar mensagem: urllib3 HTTPError ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+Traceback (most recent call last):
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 614, in urlopen
+    httplib_response = self._make_request(conn, method, url,
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 402, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 398, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\http\client.py", line 1377, in getresponse
+    response.begin()
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\http\client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\http\client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+ConnectionResetError: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\utils\request.py", line 259, in _request_wrapper
+    resp = self._con_pool.request(*args, **kwargs)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\request.py", line 68, in request
+    return self.request_encode_body(method, url, fields=fields,
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\request.py", line 148, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\poolmanager.py", line 244, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 665, in urlopen
+    retries = retries.increment(method, url, error=e, _pool=self,
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\util\retry.py", line 347, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\packages\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 614, in urlopen
+    httplib_response = self._make_request(conn, method, url,
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 402, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\vendor\ptb_urllib3\urllib3\connectionpool.py", line 398, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\http\client.py", line 1377, in getresponse
+    response.begin()
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\http\client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\http\client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\andre\AppData\Local\Programs\Python\Python39\lib\ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+telegram.vendor.ptb_urllib3.urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\bot_alerts_binance.py", line 50, in send
+    bot.send_message(chat_id=CHAT_ID, text=msg)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\bot.py", line 134, in decorator
+    result = func(*args, **kwargs)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\bot.py", line 534, in send_message
+    return self._message(  # type: ignore[return-value]
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\bot.py", line 344, in _message
+    result = self._post(endpoint, data, timeout=timeout, api_kwargs=api_kwargs)
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\bot.py", line 299, in _post
+    return self.request.post(
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\utils\request.py", line 361, in post
+    result = self._request_wrapper(
+  File "C:\Users\andre\OneDrive\Área de Trabalho\BotAlertasBinance\venv\lib\site-packages\telegram\utils\request.py", line 265, in _request_wrapper
+    raise NetworkError(f'urllib3 HTTPError {error}') from error
+telegram.error.NetworkError: urllib3 HTTPError ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+2025-09-24 21:52:35,429 INFO: Bot de Alertas iniciado (starter seguro). TOP_N=1 POLL_INTERVAL=30s COOLDOWN=10m
+2025-09-24 21:52:39,452 WARNING: NetworkError (tentativa 1/4): Chat not found. Retry em 1s
+2025-09-24 21:52:41,174 WARNING: NetworkError (tentativa 2/4): Chat not found. Retry em 2s
+2025-09-24 21:52:43,869 WARNING: NetworkError (tentativa 3/4): Chat not found. Retry em 4s
+2025-09-24 21:52:48,557 WARNING: NetworkError (tentativa 4/4): Chat not found. Retry em 8s
+2025-09-24 21:52:56,568 ERROR: Falha ao enviar mensagem apos 4 tentativas.
+2025-09-24 21:52:56,568 INFO: Entrando no loop principal. Ctrl+C para parar.
+2025-09-24 21:52:58,239 INFO: Checando: ETHUSDT Change% -1.090
+2025-09-24 21:53:05,052 INFO: Interrompido pelo usuário. Finalizando.
+2025-09-24 21:53:05,791 WARNING: NetworkError (tentativa 1/4): Chat not found. Retry em 1s
+2025-09-24 21:53:07,475 WARNING: NetworkError (tentativa 2/4): Chat not found. Retry em 2s
+2025-09-24 21:53:10,186 WARNING: NetworkError (tentativa 3/4): Chat not found. Retry em 4s
+2025-09-24 21:55:53,621 INFO: Bot de Alertas iniciado (starter seguro). TOP_N=1 POLL_INTERVAL=30s COOLDOWN=10m
+2025-09-24 21:55:55,067 WARNING: NetworkError (tentativa 1/4): Chat not found. Retry em 1s
+2025-09-24 21:55:56,803 WARNING: NetworkError (tentativa 2/4): Chat not found. Retry em 2s
+2025-09-24 21:55:59,585 WARNING: NetworkError (tentativa 3/4): Chat not found. Retry em 4s
+2025-09-24 21:56:04,291 WARNING: NetworkError (tentativa 4/4): Chat not found. Retry em 8s
+2025-09-24 21:56:12,293 ERROR: Falha ao enviar mensagem apos 4 tentativas.
+2025-09-24 21:56:12,293 INFO: Entrando no loop principal. Ctrl+C para parar.
+2025-09-24 21:56:13,990 INFO: Checando: ETHUSDT Change% -1.225
+2025-09-24 21:56:45,575 INFO: Checando: ETHUSDT Change% -1.174
+2025-09-24 21:57:17,153 INFO: Checando: ETHUSDT Change% -1.119
+2025-09-24 21:57:35,381 INFO: Interrompido pelo usuário. Finalizando.
+2025-09-24 21:57:36,075 WARNING: NetworkError (tentativa 1/4): Chat not found. Retry em 1s
+2025-09-24 21:57:37,713 WARNING: NetworkError (tentativa 2/4): Chat not found. Retry em 2s
+2025-09-24 21:57:43,168 INFO: Bot de Alertas iniciado (starter seguro). TOP_N=1 POLL_INTERVAL=30s COOLDOWN=10m
+2025-09-24 21:57:45,531 WARNING: NetworkError (tentativa 1/4): Chat not found. Retry em 1s
+2025-09-24 21:57:47,162 WARNING: NetworkError (tentativa 2/4): Chat not found. Retry em 2s
+2025-09-24 21:57:49,815 WARNING: NetworkError (tentativa 3/4): Chat not found. Retry em 4s
+2025-09-24 21:57:54,474 WARNING: NetworkError (tentativa 4/4): Chat not found. Retry em 8s
+2025-09-24 21:58:02,481 ERROR: Falha ao enviar mensagem apos 4 tentativas.
+2025-09-24 21:58:02,482 INFO: Entrando no loop principal. Ctrl+C para parar.
+2025-09-24 21:58:04,062 INFO: Checando: ETHUSDT Change% -1.137
+2025-09-24 21:58:35,743 INFO: Checando: ETHUSDT Change% -1.067
+2025-09-24 21:59:07,538 INFO: Checando: ETHUSDT Change% -1.180
+2025-09-24 21:59:23,284 INFO: Interrompido pelo usuário. Finalizando.
+2025-09-24 21:59:24,012 WARNING: NetworkError (tentativa 1/4): Chat not found. Retry em 1s
+2025-09-24 21:59:25,727 WARNING: NetworkError (tentativa 2/4): Chat not found. Retry em 2s
+2025-09-24 21:59:28,461 WARNING: NetworkError (tentativa 3/4): Chat not found. Retry em 4s
+2025-09-24 21:59:33,189 WARNING: NetworkError (tentativa 4/4): Chat not found. Retry em 8s
+2025-09-24 22:47:50,063 INFO: Bot de Alertas iniciado (starter seguro). TOP_N=1 POLL_INTERVAL=30s COOLDOWN=10m
+2025-09-24 22:47:51,042 INFO: Mensagem enviada: Bot de Alertas iniciado ✅ | Modo: starter seguro | TOP_N=1
+2025-09-24 22:47:51,042 INFO: Entrando no loop principal. Ctrl+C para parar.
+2025-09-24 22:47:51,632 INFO: Checando: ETHUSDT Change% -2.130
+2025-09-24 22:48:23,339 INFO: Checando: ETHUSDT Change% -2.159
+2025-09-24 22:48:54,939 INFO: Checando: ETHUSDT Change% -2.231
+2025-09-24 22:49:18,976 INFO: Interrompido pelo usuário. Finalizando.
+2025-09-24 22:49:19,362 INFO: Mensagem enviada: Bot de Alertas finalizado (Ctrl+C).
+2025-09-24 22:57:54,263 INFO: Bot de Alertas iniciado (starter seguro). TOP_N=1 POLL_INTERVAL=30s COOLDOWN=10m
+2025-09-24 22:57:56,250 INFO: Mensagem enviada: Bot de Alertas iniciado ✅ | Modo: starter seguro | TOP_N=1
+2025-09-24 22:57:56,250 INFO: Entrando no loop principal. Ctrl+C para parar.
+2025-09-24 22:57:56,897 INFO: Checando: ETHUSDT Change% -2.137
+2025-09-24 22:58:28,526 INFO: Checando: ETHUSDT Change% -2.135
+2025-09-24 22:59:00,986 INFO: Checando: ETHUSDT Change% -2.119
+2025-09-24 22:59:32,673 INFO: Checando: ETHUSDT Change% -2.039
+2025-09-24 23:00:04,638 INFO: Checando: ETHUSDT Change% -2.057
+2025-09-24 23:00:11,912 INFO: Interrompido pelo usuário. Finalizando.
+2025-09-24 23:00:12,297 INFO: Mensagem enviada: Bot de Alertas finalizado (Ctrl+C).
